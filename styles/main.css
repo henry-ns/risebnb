@@ -152,10 +152,10 @@ ul {
 
 .places ul {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(213px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 80px;
 
-  max-width: 799px;
+  max-width: 950px;
   margin: 80px auto;
 }
 
@@ -165,7 +165,7 @@ ul {
   align-items: flex-start;
   justify-content: flex-start;
 
-  border: 1px solid var(--active);
+  border: 2px solid var(--active);
 }
 
 .image-wrapper {

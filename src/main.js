@@ -34,11 +34,11 @@ async function searchPlaces() {
     places = places.filter((item) => item.name.match(regex));
   }
 
-  if (places.length < 9) {
-    fillPlaces = data.slice(0, 9).filter((item) => !places.includes(item));
+  // if (places.length < 9) {
+  //   fillPlaces = data.slice(0, 9).filter((item) => !places.includes(item));
 
-    places.push(...fillPlaces);
-  }
+  //   places.push(...fillPlaces);
+  // }
 
   pageCount = Math.ceil(places.length / 9);
   console.log(places);
@@ -80,9 +80,11 @@ async function handleSubmit(event) {
 
   const list = document.querySelector(".places ul");
 
-  list.innerHTML = '';
+  list.innerHTML = "";
 
-  places.forEach((place) => {
+  const initialPosition = (currentPage - 1) * 9;
+
+  places.slice(initialPosition, initialPosition + 9).forEach((place) => {
     child = createPlaceElement(place);
 
     list.appendChild(child);
