@@ -36,6 +36,28 @@
       <section class="places">
         <ul></ul>
       </section>
+
+      <div class="pagination">
+        <button type="button" class="next-button" id="prev-btn-page" onclick="decreasePage()">
+          <img src="./assets/icons/chevron-left.svg" alt="Arrow left" />
+          Prev
+        </button>
+
+        <button type="button" class="page-button" id="first-page" onclick="setCurrentPage(1)">
+          1
+        </button>
+        <button type="button" class="page-button" id="current-page" >
+          1
+        </button>
+        <button type="button" class="page-button" id="last-page" onclick="setCurrentPage(state.pageCount)" >
+          1
+        </button>
+
+        <button type="button" class="next-button" id="next-btn-page" onclick="increasePage()">
+          Next
+          <img src="./assets/icons/chevron-right.svg" alt="Arrow right" />
+        </button>
+      </div>
     </div>
   </body>
 </html>

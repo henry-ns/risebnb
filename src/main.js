@@ -1,6 +1,9 @@
-let data = [];
-let currentPage = 1;
-let pageCount = 1;
+const state = {
+  data: [],
+  places: [],
+  currentPage: 1,
+  pageCount: 1,
+};
 
 function formatCurrency(value) {
   return Intl.NumberFormat("pt-BR", {
@@ -21,7 +24,7 @@ async function searchPlaces() {
   const name = document.getElementById("search-name").value;
   const type = document.getElementById("search-type").value;
 
-  let places = [...data];
+  let places = [...state.data];
 
   if (!!type) {
     const regex = new RegExp(type, "gi");
@@ -35,13 +38,12 @@ async function searchPlaces() {
   }
 
   // if (places.length < 9) {
-  //   fillPlaces = data.slice(0, 9).filter((item) => !places.includes(item));
+  //   fillPlaces = state.data.slice(0, 9).filter((item) => !places.includes(item));
 
   //   places.push(...fillPlaces);
   // }
 
-  pageCount = Math.ceil(places.length / 9);
-  console.log(places);
+  state.pageCount = Math.ceil(places.length / 9);
 
   return places;
 }
@@ -71,22 +73,77 @@ function createPlaceElement(data) {
 async function handleSubmit(event) {
   event.preventDefault();
 
-  if (!data.length) {
-    data = await getData();
-    pageCount = Math.ceil(data.length / 9);
+  if (!state.data.length) {
+    state.data = await getData();
+    state.pageCount = Math.ceil(state.data.length / 9);
   }
 
-  const places = await searchPlaces();
+  state.places = await searchPlaces();
 
+  updatePlaces();
+
+  updatePagitation();
+}
+
+function updatePlaces() {
   const list = document.querySelector(".places ul");
 
   list.innerHTML = "";
 
-  const initialPosition = (currentPage - 1) * 9;
+  const initialPosition = (state.currentPage - 1) * 9;
 
-  places.slice(initialPosition, initialPosition + 9).forEach((place) => {
+  state.places.slice(initialPosition, initialPosition + 9).forEach((place) => {
     child = createPlaceElement(place);
 
     list.appendChild(child);
   });
+}
+
+/* Paginations functions */
+
+function updateElementStatus(id, conditionToDisable) {
+  const element = document.getElementById(id);
+
+  if (conditionToDisable) {
+    return element.classList.add("disabled");
+  }
+
+  element.classList.remove("disabled");
+}
+
+function updatePagitation() {
+  updateElementStatus("prev-btn-page", state.currentPage === 1);
+  updateElementStatus("next-btn-page", state.currentPage === state.pageCount);
+
+  const currentPageBtn = document.getElementById("current-page");
+  const lastPageBtn = document.getElementById("last-page");
+
+  currentPageBtn.innerText = state.currentPage;
+  lastPageBtn.innerText = String(state.pageCount);
+
+  updateElementStatus("first-page", currentPageBtn.innerText === "1");
+  updateElementStatus(
+    "last-page",
+    lastPageBtn.innerText === currentPageBtn.innerText
+  );
+
+  updatePlaces();
+}
+
+function setCurrentPage(value) {
+  state.currentPage = value;
+
+  updatePagitation();
+}
+
+function increasePage() {
+  const nextPage = state.currentPage + 1;
+
+  setCurrentPage(nextPage > state.pageCount ? state.pageCount : nextPage);
+}
+
+function decreasePage() {
+  const prevPage = state.currentPage - 1;
+
+  setCurrentPage(prevPage < 1 ? 1 : prevPage);
 }

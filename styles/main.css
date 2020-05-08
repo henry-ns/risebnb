@@ -5,7 +5,7 @@
 
   --dark-active: #b13118;
 
-  --secundary-text: #404043;
+  --secundary-text: #4b4b50;
   --secundary-background: #F9F5F3;
 }
 
@@ -200,4 +200,77 @@ ul {
 .places div strong {
   font-size: 1.8rem;
   color: var(--active);
+}
+
+/* PAGINATION STYLES */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 80px;
+}
+
+.pagination button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 32px;
+
+  background: var(--background);
+  color: var(--text);
+  padding: 0;
+}
+
+.next-button {
+  transition: color 0.2s ease-in;
+}
+
+.next-button:first-of-type {
+  margin-right: 6px;
+  padding-right: 8px;
+}
+
+.next-button:last-of-type {
+  margin-left: 6px;
+  padding-left: 8px;
+}
+
+.next-button:first-of-type img {
+  margin-right: 8px;
+}
+
+.next-button:last-of-type img {
+  margin-left: 8px;
+}
+
+.next-button:hover {
+  color: var(--active);
+}
+
+.page-button {
+  width: 32px;
+  margin: 0 4px;
+
+  color: var(--secundary-text);
+  border: 1px solid var(--secundary-text);
+  transition: transform 0.2s ease-in;
+}
+
+.page-button:hover {
+  transform: scale(1.2);
+}
+
+#current-page {
+  color: var(--active);
+  border-color: var(--active);
+  pointer-events: none;
+  opacity: 1;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
