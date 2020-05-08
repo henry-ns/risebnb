@@ -34,6 +34,7 @@ body {
   padding: 0 32px;
 
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 input {
@@ -87,18 +88,37 @@ ul {
 
 /* SEARCH STYLES */
 
-.search {
+.search { 
   display: flex;
   justify-content: space-between;
+  position: relative;
 
   padding: 80px 32px;
   padding-top: calc(80px + 107px);
+}
 
-  background: url(../assets/background/shape1.svg) right no-repeat;
+.search::before,
+.search::after {
+  content: url("/assets/background/shape-1.svg");
+  position: absolute;
+
+  top: 0px;
+  z-index: -1;
+}
+
+
+.search::before {
+  right: -32px;
+}
+
+.search::after {
+  transform: rotate(180deg);
+  left: calc(100% + 32px);
+  top: -4px;
 }
 
 .search div.title {
-  flex: 1;
+  flex: 6;
 }
 
 .search div.title span {
@@ -117,9 +137,10 @@ ul {
 }
 
 .search form {
-  flex: 1;
+  flex: 4;
 
-  padding-right: 80px;
+  margin-left: auto;
+  padding-right: 40px;
 
   display: flex;
   flex-direction: column;
@@ -150,13 +171,61 @@ ul {
 
 /* Places STYLES */
 
+.places {
+  position: relative;
+  padding: 80px 0;
+}
+
+.places::before,
+.places::after {
+  content: '';
+  position: absolute;
+
+  left: -32px;
+  transform: translateX(-50%);
+
+  z-index: -1;
+}
+
+.places::before {
+  background: var(--secundary-background);
+  width: 220px;
+  height: calc(100% + 112px);
+
+  top: 0;
+}
+
+.places::after {
+  border: 110px solid transparent;
+  border-bottom: 240px solid var(--secundary-background);
+
+  bottom: 100%;
+}
+
 .places ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 80px;
-
+  
+  position: relative;
   max-width: 950px;
-  margin: 80px auto;
+  margin: auto;
+}
+
+.places ul::before {
+  content: '';
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  background: url("/assets/background/shape-2.svg") center no-repeat;
+  background-size: contain;
+
+  width: 100%;
+  height: 71%;
+
+  z-index: -1;
 }
 
 .places ul li {
@@ -166,6 +235,7 @@ ul {
   justify-content: flex-start;
 
   border: 2px solid var(--active);
+  background: var(--background);
 }
 
 .image-wrapper {
