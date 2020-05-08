@@ -23,6 +23,8 @@ async function getData() {
 async function searchPlaces() {
   const name = document.getElementById("search-name").value;
   const type = document.getElementById("search-type").value;
+  const minPrice = document.getElementById("search-min").value;
+  const maxPrice = document.getElementById("search-max").value;
 
   let places = [...state.data];
 
@@ -35,6 +37,14 @@ async function searchPlaces() {
     const regex = new RegExp(name, "gi");
 
     places = places.filter((item) => item.name.match(regex));
+  }
+
+  if (!!minPrice) {
+    places = places.filter((item) => item.price >= minPrice);
+  }
+
+  if (!!maxPrice) {
+    places = places.filter((item) => item.price <= maxPrice);
   }
 
   state.pageCount = Math.ceil(places.length / 9);

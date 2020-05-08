@@ -118,7 +118,7 @@ ul {
 }
 
 .search div.title {
-  flex: 6;
+  flex: 55;
 }
 
 .search div.title span {
@@ -137,10 +137,10 @@ ul {
 }
 
 .search form {
-  flex: 4;
+  flex: 45;
 
   margin-left: auto;
-  padding-right: 40px;
+  padding-right: 50px;
 
   display: flex;
   flex-direction: column;
@@ -153,9 +153,20 @@ ul {
   margin-top: 32px;
 }
 
-.search form input + input {
-  margin-top: 24px;
-  width: 50%;
+.search form div {
+  display: flex;
+  align-items: center;
+  max-width: 450px;
+}
+
+.search form div input:first-of-type {
+  flex: 50;
+}
+
+.search form div input:not(:first-of-type) {
+  flex: 25;
+  margin-left: 16px;
+  padding-right: 8px;
 }
 
 .search form button {
@@ -240,7 +251,7 @@ ul {
 
 .image-wrapper {
   position: relative;
-  padding-bottom: 56.2%;
+  padding-bottom: 56.25%;
   width: 100%;
 }
 
@@ -249,6 +260,8 @@ ul {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  
+  top: 0;
 }
 
 .places div:last-of-type {
