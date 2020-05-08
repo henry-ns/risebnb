@@ -37,12 +37,6 @@ async function searchPlaces() {
     places = places.filter((item) => item.name.match(regex));
   }
 
-  // if (places.length < 9) {
-  //   fillPlaces = state.data.slice(0, 9).filter((item) => !places.includes(item));
-
-  //   places.push(...fillPlaces);
-  // }
-
   state.pageCount = Math.ceil(places.length / 9);
 
   return places;
@@ -80,8 +74,6 @@ async function handleSubmit(event) {
 
   state.places = await searchPlaces();
 
-  updatePlaces();
-
   updatePagitation();
 }
 
@@ -101,17 +93,19 @@ function updatePlaces() {
 
 /* Paginations functions */
 
-function updateElementStatus(id, conditionToDisable) {
+function updateElementStatus(id, conditionToDisable, className = "disabled") {
   const element = document.getElementById(id);
 
   if (conditionToDisable) {
-    return element.classList.add("disabled");
+    return element.classList.add(className);
   }
 
-  element.classList.remove("disabled");
+  element.classList.remove(className);
 }
 
 function updatePagitation() {
+  updateElementStatus("pagination", state.pageCount === 0, "display-none");
+
   updateElementStatus("prev-btn-page", state.currentPage === 1);
   updateElementStatus("next-btn-page", state.currentPage === state.pageCount);
 
