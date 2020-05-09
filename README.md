@@ -9,17 +9,17 @@
 <p align="center">
   <!-- if your  -->
   <a href="https://github.com/henry-ns/risebnb/graphs/commit-activity" alt="Maintenance">
-    <img src="https://img.shields.io/badge/Maintained%3F-yes-blue.svg" />
+    <img src="https://img.shields.io/badge/Maintained%3F-yes-1EAE72.svg" />
   </a>
 
   <!-- if your app is a website -->
-  <a href="https://<link>" alt="Website <link>">
-    <img src="https://img.shields.io/website-up-down-blue-red/https/risebnb.netlify.app" />
+  <a href="https://risebnb.thehenry.dev" alt="Website risebnb.thehenry.dev">
+    <img src="https://img.shields.io/website-up-down-1EAE72-red/https/risebnb.thehenry.dev" />
   </a>
 
   <!-- License -->
   <a href="./LICENSE" alt="License: MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
+    <img src="https://img.shields.io/badge/License-MIT-1EAE72.svg" />
   </a>
 
   <!-- codefactor -->
@@ -101,5 +101,3 @@ This project is under the MIT license. See the file [LICENSE](LICENSE) for more 
 ---
 
 Build with 💙 By [Henrique Miranda](https://thehenry.dev)
-
-Based on the [readme template](https://gist.github.com/henry-ns/a00234378353d9ca43e1bfe043202192) by [Me :)](http://thehenry.dev/)
