@@ -1,12 +1,12 @@
 :root {
-  --active: #DE3E1F;
-  --text: #2F2F2F;
+  --active: #de3e1f;
+  --text: #2f2f2f;
   --background: #fff;
 
   --dark-active: #b13118;
 
   --secundary-text: #4b4b50;
-  --secundary-background: #F9F5F3;
+  --secundary-background: #f9f5f3;
 }
 
 * {
@@ -25,7 +25,9 @@ html {
   background: var(--background);
 }
 
-body, input, button {
+body,
+input,
+button {
   font: 1.6rem "Montserrat", sans-serif;
   color: var(--text);
 }
@@ -55,7 +57,7 @@ button {
   background: var(--active);
   color: var(--background);
   cursor: pointer;
-  
+
   border: 0;
   padding: 0 16px;
   transition: background 0.2s ease-in;
@@ -65,7 +67,7 @@ button:hover {
   background: var(--dark-active);
 }
 
-input, 
+input,
 button {
   font-weight: 500;
 }
@@ -113,7 +115,7 @@ a:hover {
 
 /* SEARCH STYLES */
 
-.search { 
+.search {
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -127,10 +129,9 @@ a:hover {
   content: url("/assets/background/shape-1.svg");
   position: absolute;
 
-  top: 0px;
+  top: 0;
   z-index: -1;
 }
-
 
 .search::before {
   right: -32px;
@@ -214,7 +215,7 @@ a:hover {
 
 .places::before,
 .places::after {
-  content: '';
+  content: "";
   position: absolute;
 
   left: -32px;
@@ -242,14 +243,14 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 80px;
-  
+
   position: relative;
   max-width: 950px;
   margin: auto;
 }
 
 .places ul::before {
-  content: '';
+  content: "";
   position: absolute;
 
   top: 50%;
@@ -285,7 +286,7 @@ a:hover {
   object-fit: cover;
   width: 100%;
   height: 100%;
-  
+
   top: 0;
 }
 
