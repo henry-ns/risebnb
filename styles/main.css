@@ -70,20 +70,45 @@ button {
   font-weight: 500;
 }
 
-header {
-  position: absolute;
-  padding: 32px 0;
-  height: 40px;
-}
-
 ul {
   list-style: none;
 }
 
 .container {
+  position: relative;
+
   width: 100%;
   max-width: 1170px;
   margin: auto;
+}
+
+/* HEADER STYLES */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  position: absolute;
+  padding: 32px 0;
+  height: 40px;
+
+  z-index: 5;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.6rem;
+
+  letter-spacing: 5px;
+  transition: color 0.2s ease-in;
+}
+
+a:hover {
+  color: var(--active);
 }
 
 /* SEARCH STYLES */

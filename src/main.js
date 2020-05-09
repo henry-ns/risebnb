@@ -56,7 +56,7 @@ function createPlaceElement(data) {
   const item = `
     <div class="image-wrapper">
       <img
-        src="${data.photo}"
+        src="${data.photo.replace(/x?x_large/gi, 'medium')}"
         alt="Photo of ${data.name}"
       />
     </div>
