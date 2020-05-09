@@ -37,7 +37,9 @@
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/henry-ns/risebnb?color=blue">
 
   <!-- version -->
-  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/henry-ns/risebnb">
+  <a href="https://github.com/henry-ns/risebnb/releases">
+    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/henry-ns/risebnb">
+  </a>
 
   <!-- GitHub repo size -->
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/henry-ns/risebnb">
